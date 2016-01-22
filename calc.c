@@ -29,6 +29,16 @@ int subtract() {
 
 }
 
+int multiply() {
+	int x, res=1;
+	char cmd[20];
+	printf("Enter numbers to multiply\n");
+	while( fgets(cmd, 20, stdin) && cmd[0] != '\n' ) {
+		res *= atoi(cmd);
+	}
+	printf("Result is %d\n", res);
+}
+
 int quit() {
 	printf("Good Bye\n");
 	exit(0);
@@ -49,6 +59,11 @@ struct calc_func functions[] = {
 		.key = '-',
 		.compute = subtract,
 		.name = "subtraction",
+	},
+	{
+		.key = '*',
+		.compute = multiply,
+		.name = "multiplication",
 	}
 
 };
