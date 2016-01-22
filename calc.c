@@ -29,6 +29,18 @@ int subtract() {
 
 }
 
+int divide() {
+	int x, res=0;
+	char cmd[20];
+	printf("Enter numbers to divide\n");
+	fgets(cmd, 20, stdin);
+	res = atoi(cmd);
+	while( fgets(cmd, 20, stdin) && cmd[0] != '\n' ) {
+		res /= atoi(cmd);
+	}
+	printf("Result is %d\n", res);
+}
+
 int quit() {
 	printf("Good Bye\n");
 	exit(0);
@@ -49,6 +61,11 @@ struct calc_func functions[] = {
 		.key = '-',
 		.compute = subtract,
 		.name = "subtraction",
+	},
+	{
+		.key = '/',
+		.compute = divide,
+		.name = "division",
 	}
 
 };
